@@ -105,7 +105,23 @@
             'clients' => $stylist->getClients()
         ));
     });
-
+    //edit a client
+    $app->patch("/client/{id}", function($id) use ($app) {
+        $client = Client::find($id);
+        $client->update($_POST['new-name']);
+        $stylist = Stylist::find($client->getStylistId());
+        return $app['twig']->render('stylist.html.twig', array(
+            'clients' => $stylist->getClients(),
+            'stylist' => $stylist
+        ));
+    });
+    //get info to change client name
+    $app->get("/client/{id}/edit", function($id) use ($app) {
+        $client = Client::find($id);
+        return $app['twig']->render('client_edit.html.twig', array(
+            'client' => $client
+        ));
+    });
 
     return $app;
  ?>
