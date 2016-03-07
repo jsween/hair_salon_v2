@@ -58,6 +58,19 @@
             $this->assertEquals(1, $result);
         }
 
+        function test_save()
+        {
+            // Arrange
+            $name = "Client";
+            $stylist_id = 1;
+            $test_Client = new Client($name, $stylist_id);
+            // Act
+            $test_Client->save();
+            // Assert
+            $result = Client::getAll();
+            $this->assertEquals($test_Client, $result[0]);
+        }
+
 
     }
  ?>
