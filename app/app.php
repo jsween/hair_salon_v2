@@ -76,7 +76,16 @@
             'stylists' => Stylist::getAll()
         ));
     });
-
+    //add a client to stylist
+    $app->post("/stylist/{id}/addClient", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $new_client = new Client($_POST['client-name'], $id);
+        $new_client->save();
+        return $app['twig']->render('stylist.html.twig', array(
+            'stylist' => $stylist,
+            'clients' => $stylist->getClients()
+        ));
+    });
 
     return $app;
  ?>
