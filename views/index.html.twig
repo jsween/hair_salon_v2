@@ -6,36 +6,34 @@
     <body>
         {% include '/includes/navbar.html.twig' %}
         <div class="container">
-        <div class="jumbotron">
-            <h1 class="center">Blue's Barbershop</h1>
+            <div class="jumbotron">
+                <h1 class="center">Blue's Barbershop</h1>
+            </div>
+            {% if stylists is not empty %}
+                <h4>Your Stylists:</h4>
+                <ul>
+                    {% for stylist in stylists %}
+                    <li class="success">
+                        <a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h5 class="text-danger">Uh oh... Please Hire Some Stylists!</h5>
+            {% endif %}
+            <h2>Add stylist:</h2>
+            <form action='/' method='post'>
+                <div class="form-group">
+                  <label for='stylist-name'>Stylist Name</label>
+                  <input name='stylist-name' type='text' class='form-control' required>
+                </div>
+                <button type='submit' class='btn btn-success'>Submit</button>
+            </form>
+            <h2>Delete All Stylist:</h2>
+            <form action='/deleteAll' method='post'>
+                <input name="_method" type="hidden" value="delete">
+                <button type='submit' class='btn btn-danger'>Clear Stylists!</button>
+            </form>
         </div>
-        <h4>Your Stylists:</h4>
-        {% if stylists is not empty %}
-            <ul>
-                {% for stylist in stylists %}
-                <li class="success">
-                    <a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <h5>Uh oh... Please Hire Some Stylists!</h5>
-        {% endif %}
-        <h2>Add stylist:</h2>
-        <form action='/' method='post'>
-        <div class="form-group">
-          <label for='stylist_name'>Stylist Name</label>
-          <input name='stylist_name' type='text' class='form-control'>
-        </div>
-        <button type='submit' class='btn btn-success'>Submit</button>
-      </form>
-
-      <h2>Delete All Stylist:</h2>
-      <form action='/deleteAll' method='post'>
-        <input name="_method" type="hidden" value="delete">
-        <button type='submit' class='btn btn-danger'>Clear Stylists!</button>
-      </form>
-
-    </div>
-  </body>
+    </body>
 </html>
