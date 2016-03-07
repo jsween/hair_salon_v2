@@ -6,8 +6,8 @@
 
         function __construct($name, $id=null)
         {
-            $this->name = $name;
             $this->id = $id;
+            $this->name = $name;
         }
 
         function setName($name)
