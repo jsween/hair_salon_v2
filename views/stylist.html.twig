@@ -27,6 +27,14 @@
             {% else%}
               <p>{{ stylist.getName}} does not have any clients.</p>
             {% endif %}
+            <h2>Add a Client's Name:</h2>
+            <form action='/stylist/{{ stylist.getId }}/addClient' method='post'>
+                <div class="form-group">
+                    <label for='client-name'>Client Name</label>
+                    <input name='client-name' type='text' class='form-control'>
+                </div>
+                <button type='submit' class='btn btn-success'>Submit</button>
+            </form>
         </div>
     </body>
 </html>

@@ -37,7 +37,7 @@
             'stylists' => Stylist::getAll()
         ));
     });
-    //Single Stylist
+    //Single Stylist Info
     $app->get("/stylist/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylist.html.twig', array(
