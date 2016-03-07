@@ -3,8 +3,8 @@
     * @backupGlobals disabled
     * @backupStaticAttributes disabled
     */
-    require_once __DIR__ . '/../src/Stylist.php';
-    // require_once __DIR__ . '/../src/Client.php';
+    require_once __DIR__.'/../src/Stylist.php';
+    require_once __DIR__.'/../src/Client.php';
     $server = 'mysql:host=localhost:8889;dbname=hair_salon_db_test';
     $username = 'root';
     $password = 'root';
