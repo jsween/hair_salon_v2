@@ -16,6 +16,7 @@ _This web app is designed for a hair salon to store information for their stylis
 2. Navigate to the root directory of the project in the CLI shell you are using and run the command: __composer install__ .
 3. Create a local server in the /web directory within the project folder using the command: __php -S localhost:8000__ .
 4. Open the directory http://localhost:8000 in any standard web browser.
+5. Launch MAMP and access mySQL by entering __/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot__ .
 
 ## SQL Commands used to Setup database
 
