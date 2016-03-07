@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include '/includes/head.html.twig' %}
+    </head>
+    <body>
+        {% include '/includes/navbar.html.twig' %}
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="center">Blue's Barbershop</h1>
+            </div>
+            <h2>Stylist: {{ stylist.getName }}</h2>
+            <a href="/stylist/{{ stylist.getId }}/edit">Edit Stylist Name</a><br>
+            <a href="/stylist/{{ stylist.getId }}/delete">Delete Stylist</a>
+
+            <p>Here is {{ stylist.getName }}'s clients:</p>
+            {% if clients is not empty%}
+                <ul>
+                {% for client in clients %}
+                    <li>
+                        {{ client.getName }}
+                        <a href="/client/{{ client.getId }}/edit">Edit</a>
+                        <a href="/client/{{ client.getId }}/delete">Delete</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else%}
+              <p>{{ stylist.getName}} does not have any clients.</p>
+            {% endif %}
+        </div>
+    </body>
+</html>
