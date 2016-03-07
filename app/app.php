@@ -110,6 +110,7 @@
         $client = Client::find($id);
         $client->update($_POST['new-name']);
         $stylist = Stylist::find($client->getStylistId());
+        var_dump($stylist->getClients());
         return $app['twig']->render('stylist.html.twig', array(
             'clients' => $stylist->getClients(),
             'stylist' => $stylist
@@ -120,6 +121,15 @@
         $client = Client::find($id);
         return $app['twig']->render('client_edit.html.twig', array(
             'client' => $client
+        ));
+    });
+
+    $app->patch("/stylist/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->update($_POST['new-name']);
+        return $app['twig']->render('stylist.html.twig', array(
+            'stylist' => $stylist,
+            'clients' => $stylist->getClients()
         ));
     });
 
