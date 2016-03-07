@@ -9,13 +9,14 @@
             <div class="jumbotron">
                 <h1 class="center">Blue's Barbershop</h1>
             </div>
-            <h3>Are you sure you want to delete {{ stylist.getName }}? This will also delete all of his or her clients.</h3>
+            <h3>Are you sure you want to delete {{ stylist.getName }}?</h3>
+            <p><em>This will also delete all of his or her clients.</em></p>
 
-      <form action='/stylist/{{ stylist.getId }}' method='post'>
-        <input name="_method" type="hidden" value="delete">
-        <button type='submit' class='btn btn-success'>Delete Stylist</button>
-        <a href="/stylist/{{ stylist.getId }}" class="btn btn-danger" role="button">Cancel</a>
-      </form>
+            <form action='/stylist/{{ stylist.getId }}' method='post'>
+                <input name="_method" type="hidden" value="delete">
+                <button type='submit' class='btn btn-success'>Delete Stylist</button>
+                <a href="/stylist/{{ stylist.getId }}" class="btn btn-danger" role="button">Cancel</a>
+            </form>
         </div>
     </body>
 </html>
