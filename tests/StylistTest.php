@@ -11,6 +11,12 @@
     $DB = new PDO($server, $username, $password);
     class StylistTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Stylist::deleteAll();
+            // Client::deleteAll();
+        }
+
         function test_get_name()
         {
             //Arrange
@@ -20,6 +26,18 @@
             $result = $test_Stylist->getName();
             //Assert
             $this->assertEquals("Stylist", $result);
+        }
+
+        function test_save()
+        {
+            // Arrange
+            $name = "Stylist";
+            $test_Stylist = new Stylist($name);
+            // Act
+            $test_Stylist->save();
+            // Assert
+            $result = Stylist::getAll();
+            $this->assertEquals($test_Stylist, $result[0]);
         }
 
     }
