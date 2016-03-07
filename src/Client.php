@@ -68,7 +68,19 @@
             $this->setName($new_name);
         }
 
+        static function find($search_id)
+        {
+            $found_client = NULL;
+            $clients = Client::getAll();
+            foreach ($clients as $client) {
+                if ($client->getId() == $search_id) {
+                    $found_client = $client;
+                }
+            }
+            return $found_client;
+        }
 
- 
+
+
     }
  ?>
