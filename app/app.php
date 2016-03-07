@@ -45,7 +45,22 @@
             'clients' => $stylist->getClients()
         ));
     });
-
+    //Select Stylist to Edit
+    $app->get("/stylist/{id}/edit", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist_edit.html.twig', array(
+            'stylist' => $stylist
+        ));
+    });
+    //update a stylist's name
+    $app->patch("/stylist/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->update($_POST['new-name']);
+        return $app['twig']->render('stylist.html.twig', array(
+            'stylist' => $stylist,
+            'clients' => $stylist->getClients()
+        ));
+    });
 
     return $app;
  ?>
