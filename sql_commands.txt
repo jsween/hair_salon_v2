@@ -1,0 +1,7 @@
+> CREATE DATABASE hair_salon;
+
+> USE hair_salon;
+
+> CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(55));
+
+> CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(55), stylist_id INT);
