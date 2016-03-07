@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    {% include '/includes/head.html.twig' %}
-  </head>
-  <body>
-    {% include '/includes/navbar.html.twig' %}
-    <div class="container">
-      <h1>Blue's Barbershop</h1>
-      <p>Your Stylists:</p>
+    <head>
+        {% include '/includes/head.html.twig' %}
+    </head>
+    <body>
+        {% include '/includes/navbar.html.twig' %}
+        <div class="container">
+        <div class="jumbotron">
+            <h1 class="center">Blue's Barbershop</h1>
+        </div>
+
+      <h4>Your Stylists:</h4>
 
       {% if stylists is not empty %}
         <ul>
