@@ -10,10 +10,11 @@
                 <h1 class="center">Blue's Barbershop</h1>
             </div>
             <h2>Stylist: {{ stylist.getName }}</h2>
+            <hr>
             <a href="/stylist/{{ stylist.getId }}/edit">Edit Stylist Name</a><br>
             <a href="/stylist/{{ stylist.getId }}/delete">Delete Stylist</a>
-
-            <p>Here is {{ stylist.getName }}'s clients:</p>
+            <hr>
+            <h4>Here are {{ stylist.getName }}'s clients:</h4>
             {% if clients is not empty%}
                 <ul>
                 {% for client in clients %}
@@ -27,6 +28,7 @@
             {% else%}
               <p>{{ stylist.getName}} does not have any clients.</p>
             {% endif %}
+            <hr>
             <h2>Add a Client's Name:</h2>
             <form action='/stylist/{{ stylist.getId }}/addClient' method='post'>
                 <div class="form-group">
