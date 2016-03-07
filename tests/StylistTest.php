@@ -55,24 +55,24 @@
         function test_getAll()
         {
             // Arrange
-            $name = "Stylist";
-            $test_Stylist = new Stylist($name);
-            $test_Stylist->save();
+            $name1 = "Stylist";
+            $test_Stylist1 = new Stylist($name1);
+            $test_Stylist1->save();
             $name2 = "Stylist 2";
             $test_Stylist2 = new Stylist($name2);
             $test_Stylist2->save();
             // Act
             $result = Stylist::getAll();
             // Assert
-            $this->assertEquals([$test_Stylist, $test_Stylist2], $result);
+            $this->assertEquals([$test_Stylist1, $test_Stylist2], $result);
         }
 
         function test_deleteAll()
         {
             // Arrange
-            $name = "Stylist";
-            $test_Stylist = new Stylist($name);
-            $test_Stylist->save();
+            $name1 = "Stylist";
+            $test_Stylist1 = new Stylist($name1);
+            $test_Stylist1->save();
             $name2 = "Stylist 2";
             $test_Stylist2 = new Stylist($name2);
             $test_Stylist2->save();
@@ -116,14 +116,14 @@
         function test_delete()
         {
             // Arrange
-            $name = "Stylist";
-            $test_Stylist = new Stylist($name);
-            $test_Stylist->save();
+            $name1 = "Stylist";
+            $test_Stylist1 = new Stylist($name);
+            $test_Stylist1->save();
             $name2 = "Stylist 2";
             $test_Stylist2 = new Stylist($name2);
             $test_Stylist2->save();
             // Act
-            $test_Stylist->delete();
+            $test_Stylist1->delete();
             // Assert
             $this->assertEquals([$test_Stylist2], Stylist::getAll());
         }
