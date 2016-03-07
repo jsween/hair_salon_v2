@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include '/includes/head.html.twig' %}
+  </head>
+  <body>
+    {% include '/includes/navbar.html.twig' %}
+    <div class="container">
+      <h1>Blue's Barbershop</h1>
+      <p>Your Stylists:</p>
+
+      {% if stylists is not empty %}
+        <ul>
+          {% for stylist in stylists %}
+            <li class="success">
+              <a href="/stylist/{{ stylist.getId }}">{{ stylist.getName }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="danger">
+          <h2>Uh oh... Please Hire Some Stylists!</h2>
+        </div>
+      {% endif %}
+
+      <h2>Add a stylist:</h2>
+      <form action='/' method='post'>
+        <div class="form-group">
+          <label for='stylist-name'>Stylist Name</label>
+          <input name='stylist-name' type='text' class='form-control'>
+        </div>
+        <button type='submit' class='btn btn-success'>Submit</button>
+      </form>
+
+      <h2>Delete All Stylist:</h2>
+      <form action='/deleteAll' method='post'>
+        <input name="_method" type="hidden" value="delete">
+        <button type='submit' class='btn btn-danger'>Delete All!</button>
+      </form>
+
+
+    </div>
+  </body>
+</html>
