@@ -56,6 +56,18 @@
             $this->setName($new_name);
         }
 
+        static function find($search_id)
+        {
+            $found_stylist = NULL;
+            $stylists = Stylist::getAll();
+            foreach ($stylists as $stylist) {
+                if ($stylist->getId() == $search_id) {
+                    $found_stylist = $stylist;
+                }
+            }
+            return $found_stylist;
+        }
+
 
 
     }
