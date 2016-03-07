@@ -12,7 +12,7 @@ _This web app is designed for a hair salon to store information for their stylis
 
 ## Setup/Installation Requirements
 
-1. _Fork and clone this repository from_ [gitHub](https://github.com/jsween/hair_saon_v2.git).
+1. _Fork and clone this repository from_ [gitHub](https://github.com/jsween/hair_salon_v2.git).
 2. Navigate to the root directory of the project in the CLI shell you are using and run the command: __composer install__ .
 3. Create a local server in the /web directory within the project folder using the command: __php -S localhost:8000__ .
 4. Open the directory http://localhost:8000 in any standard web browser.
@@ -33,7 +33,7 @@ _Unable to store names of clients and stylists when using an apostrophe._
 
 ## Support and contact details
 
-_Contact the author through_ [gitHub](https://github.com/jsween/hair_saon_v2.git).
+_Contact the author through_ [gitHub](https://github.com/jsween/hair_salon_v2.git).
 
 ## Technologies Used
 
